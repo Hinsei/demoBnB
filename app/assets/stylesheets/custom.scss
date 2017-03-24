@@ -1,4 +1,19 @@
 .btn-default {
-  background-color: black;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.box {
+  border: 2px solid black;
+  border-radius: 20px;
+  background-color: #163C32;
   color: white;
+}
+
+.box button, input, optgroup, select, textarea {
+  color: black;
+}
+
+.spacing {
+  height: 10px;
 }
