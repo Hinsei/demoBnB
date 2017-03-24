@@ -12,3 +12,23 @@
     </div>
   </div>
 <% end %>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2 col-xs-8 col-xs-offset-2">
+    <div class="col-md-2 col-xs-2 col-md-offset-2 col-xs-offset-2 pull-left">
+      <% unless @listings.include?(Listing.first) %>
+        <%= form_tag listings_path, method: :get do %>
+          <%= hidden_field_tag :value, @counter - 10 %>
+          <%= submit_tag "<" %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="col-md-2 col-xs-2 col-md-offset-2 col-xs-offset-2 pull-right">
+      <% unless @listings.include?(Listing.last) %>
+        <%= form_tag listings_path, method: :get do %>
+          <%= hidden_field_tag :value, @counter + 10 %>
+          <%= submit_tag ">" %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

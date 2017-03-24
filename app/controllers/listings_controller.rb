@@ -3,7 +3,13 @@ class ListingsController < ApplicationController
   before_action :find_listing, only: [:show, :edit, :update, :destroy]
 
   def index
-    @listings = Listing.all
+    @counter ||= 0 unless @counter
+    if params[:value]
+      @counter += params[:value].to_i
+      @listings = Listing.all.limit(10).offset(@counter)
+    else
+      @listings = Listing.all.limit(10).offset(0)
+    end
   end
 
   def new
