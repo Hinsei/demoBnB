@@ -1,4 +1,5 @@
 class UsersController < Clearance::UsersController
+  before_action :find_user, only: [:show, :edit, :update, :destroy]
 
   def new
     @user = User.new
@@ -16,8 +17,31 @@ class UsersController < Clearance::UsersController
     end
   end
 
+  def show
+  end
+
+  def edit
+  end
+
+  def update
+    if @user.update(user_params)
+      redirect_to @user
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @user.destroy
+    sign_out
+    redirect_to root_path
+  end
 private
   def user_params
     params.require(:user).permit(:username, :email, :password)
+  end
+
+  def find_user
+    @user = User.find(params[:id])
   end
 end

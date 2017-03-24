@@ -8,9 +8,10 @@
   <%= form.label :username %>
   <%= form.text_field :username, class: "form-control" %>
 </div>
-
-<div class="password-field form-group">
-  <%= form.label :password %>
-  <%= form.password_field :password, class: "form-control" %>
-</div>
+<% unless current_user %>
+  <div class="password-field form-group">
+    <%= form.label :password %>
+    <%= form.password_field :password, class: "form-control" %>
+  </div>
+<% end %>
 <div class="spacing"></div>
