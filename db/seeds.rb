@@ -32,7 +32,8 @@ ActiveRecord::Base.transaction do
 
     listing['price'] = rand(80..500)
     listing['description'] = Faker::Hipster.sentence
-
+    listing['start_date'] = Faker::Date
+    listing['end_date'] = Faker::Date
     listing['user_id'] = uids.sample
 
     Listing.create(listing)
