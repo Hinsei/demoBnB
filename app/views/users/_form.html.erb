@@ -13,5 +13,10 @@
     <%= form.label :password %>
     <%= form.password_field :password, class: "form-control" %>
   </div>
+<% else %>
+  <div class="form-group">
+    <%= form.label :profile %>
+    <%= form.file_field :profile, class: "form-control" %>
+  </div>
 <% end %>
 <div class="spacing"></div>
